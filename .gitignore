@@ -39,3 +39,6 @@ Thumbs.db
 # Angular
 node_modules/
 bower_components/
+
+# Login
+login/
