@@ -1,0 +1,27 @@
+.fa-5 {
+    font-size: 5em;
+}
+.fa-8 {
+    font-size: 8em;
+}
+.row-50-pad {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.row-50-pad h2, .row-50-pad h4, .row-50-pad i{
+    color: #c57924;
+}
+.row-50-pad-inverse {
+    background-color: #c57924;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.row-50-pad-inverse h1, .row-50-pad-inverse h2, .row-50-pad-inverse h4, .row-50-pad-inverse i, .row-50-pad-inverse p {
+    color: #FFFFFF;
+}
+.well {
+    background-color: #c57924;
+}
+.well h2, .well h3, .well h4, .well i{
+    color: #FFFFFF;
+}
