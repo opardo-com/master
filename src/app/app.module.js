@@ -12,15 +12,13 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var nav_component_1 = require('./nav/nav.component');
-var panel_component_1 = require('./panel/panel.component');
-var quote_component_1 = require('./quote/quote.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, nav_component_1.NavComponent, panel_component_1.PanelComponent, quote_component_1.QuoteComponent],
+            declarations: [app_component_1.AppComponent, nav_component_1.NavComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

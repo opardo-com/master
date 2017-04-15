@@ -5,14 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { NavComponent }  from './nav/nav.component';
-import { PanelComponent }  from './panel/panel.component';
-import { QuoteComponent }  from './quote/quote.component';
+
 
 
 
 @NgModule({
   imports:      [ BrowserModule],
-  declarations: [ AppComponent, NavComponent, PanelComponent, QuoteComponent ],
+  declarations: [ AppComponent, NavComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
