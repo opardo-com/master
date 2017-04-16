@@ -14,6 +14,7 @@ var QuoteComponent = (function () {
     // we will use form builder to simplify our syntax
     function QuoteComponent(_fb) {
         this._fb = _fb;
+        this.makes = [];
     }
     QuoteComponent.prototype.ngOnInit = function () {
         // we will initialize our form here
@@ -26,7 +27,7 @@ var QuoteComponent = (function () {
     QuoteComponent.prototype.initVehicle = function () {
         // initialize our Vehicle
         return this._fb.group({
-            year: ['2018'],
+            year: [new Date().getFullYear()],
             make: [''],
             model: [''],
             trim: [''],

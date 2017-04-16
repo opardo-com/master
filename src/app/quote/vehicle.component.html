@@ -1,7 +1,7 @@
 <div [formGroup]="vehicleForm">
     <div class="form-group">
         <label>Year</label>
-        <select [(ngModel)]="year" formControlName="year" class="form-control">
+        <select formControlName="year" class="form-control">
         <option *ngFor="let yearOption of years" value= {{yearOption}}>
             {{yearOption}}
         </option>
@@ -9,7 +9,11 @@
     </div>
     <div class="form-group">
         <label>Make</label>
-        <input type="text" formControlName="make" class="form-control">
+        <select formControlName="make" class="form-control">
+        <option *ngFor="let make of makes | sortBy: 'make.Make_Name'" value= {{make.Make_ID}}>
+            {{make.Make_Name}}
+        </option>
+        </select>
     </div>
     <div class="form-group">
         <label>Model</label>

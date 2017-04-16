@@ -10,15 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
+var vehicle_service_1 = require('./vehicle.service');
 var VehicleComponent = (function () {
-    function VehicleComponent() {
+    function VehicleComponent(_qS) {
+        this._qS = _qS;
         this.years = [];
+        this.makes = [];
     }
     VehicleComponent.prototype.ngOnInit = function () {
         // we will initialize our form here
         for (var i = new Date().getFullYear() + 1; i > 1900; i--) {
             this.years.push(i);
         }
+        this.getMakes();
+    };
+    VehicleComponent.prototype.getMakes = function () {
+        var _this = this;
+        this._qS.getMakes()
+            .subscribe(function (makes) {
+            _this.makes = makes.Results;
+        }, function (error) { return console.log(error); }),
+            function () { return console.log(_this.makes); };
     };
     __decorate([
         core_1.Input('group'), 
@@ -28,9 +40,10 @@ var VehicleComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'vehicle',
-            templateUrl: 'vehicle.component.html'
+            templateUrl: 'vehicle.component.html',
+            providers: [vehicle_service_1.QuoteService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [vehicle_service_1.QuoteService])
     ], VehicleComponent);
     return VehicleComponent;
 }());
