@@ -1,0 +1,39 @@
+<div class="container">
+    <h4>Vehicles</h4>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+        <!-- list of vehicles -->
+        <div formArrayName="Vehicles">
+            <div *ngFor="let vehicle of myForm.controls.Vehicles.controls; let i=index">
+                <!-- vehicle header, show remove button when more than one vehicle available -->
+                <div>
+                    <span>Vehicle {{i + 1}}</span>
+                    <i class="fa fa-window-close" aria-hidden="true" *ngIf="myForm.controls.Vehicles.controls.length > 1" (click)="removeVehicle(i)"></i>
+                    <span *ngIf="myForm.controls.Vehicles.controls.length > 1" (click)="removevehicle(i)">
+                </span>
+                </div>
+
+                <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+                <div [formGroupName]="i">
+                    <vehicle [group]="myForm.controls.Vehicles.controls[i]">
+                    </vehicle>
+                </div>
+            </div>
+        </div>
+        <div class="margin-20">
+            <a (click)="addVehicle()" style="cursor: default">
+            Add another address +
+          </a>
+        </div>
+
+        <div class="margin-20">
+            <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="margin-20">
+            <div>myForm details:-</div>
+            <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+            <pre>form value: <br>{{myForm.value | json}}</pre>
+        </div>
+    </form>
+</div>

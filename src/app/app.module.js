@@ -10,15 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var nav_component_1 = require('./nav/nav.component');
+var home_component_1 = require('./home/home.component');
+var quote_component_1 = require('./quote/quote.component');
+var vehicle_component_1 = require('./quote/vehicle.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, nav_component_1.NavComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                forms_1.ReactiveFormsModule,
+                router_1.RouterModule.forRoot([
+                    {
+                        path: '',
+                        redirectTo: '/home',
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: 'home', component: home_component_1.HomeComponent
+                    },
+                    {
+                        path: 'quote', component: quote_component_1.QuoteComponent
+                    }
+                ])
+            ],
+            declarations: [app_component_1.AppComponent, nav_component_1.NavComponent, home_component_1.HomeComponent, quote_component_1.QuoteComponent, vehicle_component_1.VehicleComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

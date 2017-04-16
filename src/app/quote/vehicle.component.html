@@ -1,0 +1,39 @@
+<div [formGroup]="vehicleForm">
+    <div class="form-group">
+        <label>Year</label>
+        <select [(ngModel)]="year" formControlName="year" class="form-control">
+        <option *ngFor="let yearOption of years" value= {{yearOption}}>
+            {{yearOption}}
+        </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Make</label>
+        <input type="text" formControlName="make" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Model</label>
+        <input type="text" formControlName="model" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Trim</label>
+        <input type="text" formControlName="trim" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Garaged Zip Code</label>
+        <input type="text" formControlName="garageZipCode" class="form-control">
+    </div>
+    <fieldset class="form-group">
+        <legend>Use</legend>
+        <div class="form-check">
+            <label class="form-check-label">
+        <input type="radio" ng-model="use" formControlName="use" value="personal" class="form-check-input"> Personal 
+        </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+        <input type="radio" ng-model="use" formControlName="use" value="business" class="form-check-input"> Business
+        </label>
+        </div>
+    </fieldset>
+</div>
