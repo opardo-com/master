@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { QuoteService } from './vehicle.service'
-import { SortPipe }from './vehicle.pipe'
+import { SortPipe } from './vehicle.pipe'
 
 @Component({
     moduleId: module.id,
@@ -14,6 +14,7 @@ export class VehicleComponent {
 
     years: number[] = [];
     makes: any[] = [];
+    models: any[] = [];
     constructor(private _qS: QuoteService) { }
     ngOnInit() {
         // we will initialize our form here
@@ -29,6 +30,20 @@ export class VehicleComponent {
             .subscribe(
             makes => {
                 this.makes = makes.Results;
+            },
+            error => console.log(error)),
+            () => console.log(this.makes);
+    }
+
+    private getModels() {
+        let make = this.vehicleForm.get('make').value;
+        let year = this.vehicleForm.get('year').value;
+
+        console.log(make, year);
+        this._qS.getModels(make, year)
+            .subscribe(
+            models => {
+                this.models = models.Results;
             },
             error => console.log(error)),
             () => console.log(this.makes);

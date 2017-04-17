@@ -19,7 +19,13 @@ var QuoteService = (function () {
         this.http = http;
     }
     QuoteService.prototype.getMakes = function () {
-        return this.http.get('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json')
+        return this.http.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json')
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    QuoteService.prototype.getModels = function (make, year) {
+        console.log(make);
+        return this.http.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json')
             .map(this.extractData)
             .catch(this.handleError);
     };

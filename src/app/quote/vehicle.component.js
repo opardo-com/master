@@ -16,6 +16,7 @@ var VehicleComponent = (function () {
         this._qS = _qS;
         this.years = [];
         this.makes = [];
+        this.models = [];
     }
     VehicleComponent.prototype.ngOnInit = function () {
         // we will initialize our form here
@@ -29,6 +30,17 @@ var VehicleComponent = (function () {
         this._qS.getMakes()
             .subscribe(function (makes) {
             _this.makes = makes.Results;
+        }, function (error) { return console.log(error); }),
+            function () { return console.log(_this.makes); };
+    };
+    VehicleComponent.prototype.getModels = function () {
+        var _this = this;
+        var make = this.vehicleForm.get('make').value;
+        var year = this.vehicleForm.get('year').value;
+        console.log(make, year);
+        this._qS.getModels(make, year)
+            .subscribe(function (models) {
+            _this.models = models.Results;
         }, function (error) { return console.log(error); }),
             function () { return console.log(_this.makes); };
     };

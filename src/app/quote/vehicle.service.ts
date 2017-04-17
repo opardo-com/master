@@ -11,7 +11,15 @@ export class QuoteService {
   constructor (private http: Http) {}
 
   getMakes(): Observable<any> {
-    return this.http.get('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json')
+    return this.http.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json')
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  getModels(make: string, year: number): Observable<any> {
+
+    console.log(make);
+    return this.http.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json')
                     .map(this.extractData)
                     .catch(this.handleError);
   }
